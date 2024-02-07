@@ -14,6 +14,18 @@
         font-size: 16px;
         cursor: pointer;
     }
+    .firework {
+        position: absolute;
+        width: 40px;
+        height: 40px;
+        background-color: yellow;
+        border-radius: 50%;
+        animation: explode 0.5s ease-in-out forwards;
+    }
+    @keyframes explode {
+        0% { transform: scale(1); opacity: 1; }
+        100% { transform: scale(100); opacity: 0; }
+    }
 </style>
 </head>
 <body>
@@ -35,6 +47,22 @@ function checkFairness() {
     
     // Display the chosen response
     document.getElementById("fairnessMessage").textContent = fairnessMessage;
+
+    if (fairnessMessage === "Yes, that's Fair") {
+        showFireworks();
+    }
+}
+
+function showFireworks() {
+    var fireworks = document.createElement("div");
+    fireworks.classList.add("firework");
+    fireworks.style.left = Math.random() * window.innerWidth + "px";
+    fireworks.style.top = Math.random() * window.innerHeight + "px";
+    document.body.appendChild(fireworks);
+
+    setTimeout(function() {
+        fireworks.remove();
+    }, 1000); // Remove the fireworks after 1 second
 }
 </script>
 
