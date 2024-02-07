@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Is this Fair?</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+    }
+    button {
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+</style>
+</head>
+<body>
+
+<h1>Is this Fair?</h1>
+
+<button onclick="checkFairness()">Click to check fairness</button>
+
+<p id="fairnessMessage"></p>
+
+<script>
+function checkFairness() {
+    // Array of possible responses
+    var responses = ["Yes, that's Fair", "No, that's not Fair"];
+    
+    // Randomly choose a response
+    var randomIndex = Math.floor(Math.random() * responses.length);
+    var fairnessMessage = responses[randomIndex];
+    
+    // Display the chosen response
+    document.getElementById("fairnessMessage").textContent = fairnessMessage;
+}
+</script>
+
+</body>
+</html>
